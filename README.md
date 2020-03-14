@@ -151,7 +151,8 @@ python main.py -h
 
 usage: main.py [-h]
 
-MiniProject 3: Classification of textual data. Authors: Ramon Figueiredo Pessoa, Yujing Zou, Rui Ma
+MiniProject 3: Classification of textual data. Authors: Ramon Figueiredo
+Pessoa, Rafael Gomes Braga, Ege Odaci
 
 optional arguments:
   -h, --help            show this help message and exit
