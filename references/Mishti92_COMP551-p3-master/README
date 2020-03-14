@@ -1,0 +1,102 @@
+README FOR COMP 551 Project 3
+
+Part1 is for Baseline learner, Part 2 for Fully connected feedforward neural network and Part 3 for optional (Convolutional Neural net/Incepton V3 Model)
+
+For Part 1:
+--------------------------------------------------
+
+python LogisticGridSearch.py
+gives the best result from grid search, C = [1,10,100,1000]
+
+
+For Part 2:
+--------------------------------------------------
+
+Files:
+1) preprocess.py - Complete PreProcessing and save the .npy files of different dimensions in ../data/
+2) nn_image.py - Set the parameters for Feed Forward Neural Network Class and run fit, predict commands
+3) ann.py - Feed Forward Neural Network Class with different methods - fit, predict, cost function etc
+
+
+Execution:
+python preprocess.py
+python nn_image.py 
+
+
+For Part 3:
+--------------------------------------------------
+For running Network 1 architecture, 
+run python network1.py
+
+For running VGG16 Architecture on top of bottleneck features:
+run vgg_retrained.py (save vgg16_weights.h5) in weights folder
+
+
+
+For Retrained Inception Model.
+-------------------------------------------
+********Using Python********
+Keep data (.npy) files in the a level above in data folder  (../data/)
+To prepare data:
+Run preprocess.py 
+Run preprocess_test.py 
+
+To Train:
+Run python retrain.py \
+--bottleneck_dir=bottlenecks \
+--how_many_training_steps 4000 \
+--learning_rate 0.04 \
+--summaries_dir= summary \
+--output_graph=model/retrained_graph.pb \
+--output_labels=model/retrained_labels.txt \
+--image_dir data\
+--model_dir = model
+
+To Predict:
+Specify 
+path/to/test/folder, modelFullPath (path to output_graph), and labelsFullPath  (path to output_labels)
+Run run_inference.py
+
+
+*******Using Bazel**********
+
+
+1. Install bazel
+
+2. Prepare the data for training
+   2.1 Run saveJPG.py to tranfer data provided as .npy to JPG files, which satisfies the following folder structure:
+        - root_folder_name
+            - class 1
+                - file1
+                - file2
+            - class 2
+                - file1
+                - file2
+
+3. Train the model
+    3.1 Clone tensorflow
+    3.2 Go to root of tensorflow 
+    3.3 Build the model by commandline (takes a long time): 
+        bazel build tensorflow/examples/image_retraining:retrain
+    3.4 Train the model by command line:  
+        bazel-bin/tensorflow/examples/image_retraining/retrain \
+	—image_dir /image/path/  \
+	—output_graph /output/path/output_graph.pb \
+	—summaries_dir /summary/folder \
+	—output_labels /output/labels/folder/output_labels.txt \
+	—learning_rate 0.04 \
+	—how_many_training_steps 4000 \
+	—bottleneck_dir /bottleneck/path/
+
+4. Predict use the model
+   4.1 Replace the main.cc in /tensorflow/examples/label_image/
+	(The original model only support classify one single image per time, we 		changed the main.cc for our data set to support batch prediction)
+   4.2 Predict by command line: 
+        bazel build tensorflow/examples/label_image:label_image && \
+        bazel-bin/tensorflow/examples/label_image/label_image \
+        --graph=/output/path/output_graph.pb --labels=/path/output_labels.txt \
+        --output_layer=final_result \
+        --image=/path/to/test/
+
+
+
