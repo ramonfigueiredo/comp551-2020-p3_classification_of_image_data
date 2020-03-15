@@ -4,12 +4,12 @@
 from __future__ import print_function
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.python.keras.datasets import mnist
-from tensorflow.python.keras.models import Sequential
-from tensorflow.python.keras.layers import Dense, Dropout, Flatten
-from tensorflow.python.keras.layers import Conv2D, MaxPooling2D
-from tensorflow.python.keras import backend as K
-from tensorflow.python.keras.callbacks import ModelCheckpoint, TensorBoard, Callback
+from keras.datasets import mnist
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, Flatten
+from keras.layers import Conv2D, MaxPooling2D
+from keras import backend as K
+from keras.callbacks import ModelCheckpoint, TensorBoard, Callback
 from clean_data import get_clean_data
 
 batch_size = 32

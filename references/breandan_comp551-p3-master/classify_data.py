@@ -1,4 +1,4 @@
-from tensorflow.python.keras.models import load_model
+from keras.models import load_model
 from load_data import load_testing_data, get_labels
 from clean_data import threshold, remove_dots
 import scipy.misc, scipy.ndimage
