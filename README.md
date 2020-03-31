@@ -5,12 +5,6 @@ MiniProject 3: COMP 551 (001/002), Applied Machine Learning, Winter 2020, McGill
 
 1. [General information](#general-information)
 2. [Problem definition](#problem-definition)
-3. [Task](#task)
-4. [Deliverables](#deliverables)
-5. [Project write-up](#project-write-up)
-5. [Evaluation](#evaluation)
-6. [Final remarks](#final-remarks)
-8. [How to run the Python program](#how-to-run-the-python-program)
 
 [Assignment description (PDF) (COMP551 P3)](https://github.com/ramonfigueiredopessoa/comp551-2020-p3_classification_of_image_data/blob/master/assignment/P3.pdf)
 
