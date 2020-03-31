@@ -26,8 +26,10 @@ Go back to [Contents](#contents).
 ## Problem definition
 
 In this mini-project, we will develop models to classify image data. We will use the CIFAR-10 dataset with the default test and train partitions. You can use ’torchvision.datasets.CIFAR10’ and ’torch.utils.data.DataLoader’ to load the data, see the tutorial below for more information. Apply and compare the performance of following models on this dataset:
-	* Multilayer perceptron: implement this from scratch based on the code available in the slides. Your implementation should include the backpropagation and the mini-batch gradient descent algorithm used (e.g., SGD). You are encouraged to change the activation function (e.g., use ReLU), and increase the number of layers, and play with the number of units per layer [See: Note 2].
-	* Convolutional Neural Network: start with this tutorial, which provides a working code on the same data for this model. You can reuse this code, however you need to add comments for each line, and each function, to make sure you understand it completely. 
+
+* Multilayer perceptron: implement this from scratch based on the code available in the slides. Your implementation should include the backpropagation and the mini-batch gradient descent algorithm used (e.g., SGD). You are encouraged to change the activation function (e.g., use ReLU), and increase the number of layers, and play with the number of units per layer [See: Note 2].
+
+* Convolutional Neural Network: start with this tutorial, which provides a working code on the same data for this model. You can reuse this code, however you need to add comments for each line, and each function, to make sure you understand it completely. 
 
 Compare and report the test and train performance of the above two models as a function of training epochs. Optionally, you may also compare various models based on the total number of parameters, as well as choice of hyperparameters such as the number of layers, number of units or channels, and the activation function [See: Note 2]. You are free to use any Python libraries you like to extract features and preprocess the data, evaluate your model, and to tune the hyper-parameters, etc. The only restriction is on the implementation of MLP and its optimization.
 
